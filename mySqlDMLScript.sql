@@ -1,41 +1,28 @@
-USE guestdb;
+USE shopGroupdb;
 
-SELECT 'Printing User Table' as '';
+SELECT 'Update Group table' as '';
 
-SELECT * FROM userTbl;
+insert into shopgroup (creation_time, admin_user_id, product_id) values ( now(), '1111','233223');
+insert into shopgroup (creation_time, admin_user_id, product_id) values ( now(), '2222','453455');
+insert into shopgroup (creation_time, admin_user_id, product_id) values ( now(), '3333','65433');
+insert into shopgroup (creation_time, admin_user_id, product_id) values ( now(), '3333','77777');
 
+SELECT 'Update gorup_member table' as '';
 
-SELECT 'Printing Order Table' as '';
-
-SELECT * FROM orderTbl;
-
-
-SELECT 'Printing Inner join Table- Users with Order' as '';
-
-SELECT userTbl.LastName, userTbl.FirstName, orderTbl.OrderNumber
-FROM userTbl
-INNER JOIN orderTbl
-ON userTbl.UserID=orderTbl.UserID
-ORDER BY userTbl.LastName;
-
-SELECT 'Printing Left join Table- Users and their Order' as '';
-
-SELECT userTbl.LastName, userTbl.FirstName, orderTbl.OrderNumber
-FROM userTbl
-LEFT JOIN orderTbl
-ON userTbl.UserID=orderTbl.UserID
-ORDER BY userTbl.LastName;
+insert into shopgroup_member (shopgroup_id, swy_user_id) values ('1', '1111');
+insert into shopgroup_member (shopgroup_id, swy_user_id) values ('1', '2222');
+insert into shopgroup_member (shopgroup_id, swy_user_id) values ('1', '3333');
+insert into shopgroup_member (shopgroup_id, swy_user_id) values ('1', '4444');
 
 
+insert into shopgroup_member (shopgroup_id, swy_user_id) values ('2', '4444');
+insert into shopgroup_member (shopgroup_id, swy_user_id) values ('2', '2222');
+insert into shopgroup_member (shopgroup_id, swy_user_id) values ('3', '5555');
 
-SELECT 'Printing Outer join Table- Users and their Order' as '';
 
-SELECT userTbl.LastName, userTbl.FirstName, orderTbl.OrderNumber
-FROM userTbl
-LEFT JOIN orderTbl
-ON userTbl.UserID=orderTbl.UserID
-UNION
-SELECT userTbl.LastName, userTbl.FirstName, orderTbl.OrderNumber
-FROM userTbl
-RIGHT JOIN orderTbl
-ON userTbl.UserID=orderTbl.UserID;
+insert into shopgroup_member (shopgroup_id, swy_user_id) values ('8', '8888');
+
+
+SELECT * FROM shopgroup;
+
+SELECT * FROM shopgroup_member;
